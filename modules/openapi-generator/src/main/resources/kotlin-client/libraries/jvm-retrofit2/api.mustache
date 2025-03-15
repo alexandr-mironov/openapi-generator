@@ -143,11 +143,11 @@ import okhttp3.MultipartBody
     @Serializable
     data class {{dataType}} (
         {{#items.vars}}
-            /**
-             * {{description}}
-             */
-            @SerialName(value = "{{baseName}}")
-            val {{name}}: {{dataType}}{{#isNullable}}? = null{{/isNullable}}{{^-last}},{{/-last}}
+        /**
+         * {{description}}
+         */
+        @SerialName(value = "{{baseName}}")
+        val {{name}}: {{dataType}}{{#isNullable}}? = null{{/isNullable}}{{^-last}},{{/-last}}
         {{/items.vars}}
     )
     {{/isDeepObject}}
