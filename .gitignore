@@ -4,6 +4,7 @@
 .vscode
 *.iml
 out/
+in/
 *.ipr
 *.iws
 *.gpg

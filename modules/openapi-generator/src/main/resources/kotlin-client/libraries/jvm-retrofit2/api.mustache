@@ -130,6 +130,31 @@ import okhttp3.MultipartBody
 
     {{/isEnum}}
     {{/allParams}}
+
+    {{#operation}}
+    {{#allParams}}
+    {{#isQueryParam}}
+    {{#isDeepObject}}
+    {{#description}}
+    /**
+     * {{description}}
+     */
+    {{/description}}
+    @Serializable
+    data class {{dataType}} (
+        {{#items.vars}}
+            /**
+             * {{description}}
+             */
+            @SerialName(value = "{{baseName}}")
+            val {{name}}: {{dataType}}{{#isNullable}}? = null{{/isNullable}}{{^-last}},{{/-last}}
+        {{/items.vars}}
+    )
+    {{/isDeepObject}}
+    {{/isQueryParam}}
+    {{/allParams}}
+    {{/operation}}
+
     /**
      * {{{httpMethod}}} {{{path}}}
      * {{summary}}
